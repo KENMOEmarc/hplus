@@ -1,4 +1,10 @@
-type Customer{
+type Query {
+    getAllCustomers: [Customer!]!
+    getCustomerById(id: ID!): Customer
+    getCustomerByEmail(email: String!): Customer
+}
+
+type Customer {
     id: ID!
     firstName: String!
     lastName: String!
@@ -8,10 +14,4 @@ type Customer{
     city: String!
     state: String!
     zipCode: String!
-}
-
-type Query {
-    getAllCustomers: [Customer]!
-    getCustomerById(id: ID!): Customer
-    getCustomerByEmail(email: String): Customer
 }
