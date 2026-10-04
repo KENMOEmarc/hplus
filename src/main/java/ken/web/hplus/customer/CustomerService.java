@@ -29,4 +29,20 @@ public class CustomerService {
         return customerRepository.findByEmailIgnoreCase(email).orElseThrow(
                 () -> CustomerNotFoundException.byEmail("Customer not found with email: " + email));
     }
+
+    public List<Customer> findByFirstName(String firstName) {
+        return customerRepository.findByFirstNameIgnoreCase(firstName);
+    }
+
+    public List<Customer> findByLastName(String lastName) {
+        return customerRepository.findByLastNameIgnoreCase(lastName);
+    }
+
+    public List<Customer> findByCity(String city) {
+        return customerRepository.findByCityIgnoreCase(city);
+    }
+
+    public List<Customer> findByState(String state) {
+        return customerRepository.findByStateIgnoreCase(state);
+    }
 }

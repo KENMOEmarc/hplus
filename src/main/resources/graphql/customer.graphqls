@@ -20,4 +20,16 @@ type Query {
 
     "A customer by email (case-insensitive). Fails with a NOT_FOUND error if it does not exist."
     getCustomerByEmail(email: String!): Customer
+
+    "Customers whose first name matches, ignoring case."
+    getCustomersByFirstName(firstName: String!): [Customer!]!
+
+    "Customers whose last name matches, ignoring case."
+    getCustomersByLastName(lastName: String!): [Customer!]!
+
+    "Customers who live in the specified city, ignoring case."
+    getCustomersByCity(city: String!): [Customer!]!
+
+    "Customers who live in the specified state, ignoring case."
+    getCustomersByState(state: String!): [Customer!]!
 }

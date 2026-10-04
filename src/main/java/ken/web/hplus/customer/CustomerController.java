@@ -30,6 +30,26 @@ public class CustomerController {
     public Customer getCustomerByEmail(@Argument String email) {
         return customerService.findByEmail(email);
     }
+
+    @QueryMapping
+    public List<Customer> getCustomersByFirstName(@Argument String firstName) {
+        return customerService.findByFirstName(firstName);
+    }
+
+    @QueryMapping
+    public List<Customer> getCustomersByLastName(@Argument String lastName) {
+        return customerService.findByLastName(lastName);
+    }
+
+    @QueryMapping
+    public List<Customer> getCustomersByCity(@Argument String city) {
+        return customerService.findByCity(city);
+    }
+
+    @QueryMapping
+    public List<Customer> getCustomersByState(@Argument String state) {
+        return customerService.findByState(state);
+    }
 }
 
 
