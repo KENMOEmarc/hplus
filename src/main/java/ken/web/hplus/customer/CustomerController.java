@@ -5,6 +5,7 @@ import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class CustomerController {
@@ -22,14 +23,12 @@ public class CustomerController {
 
     @QueryMapping
     public Customer getCustomerById(@Argument Long id) {
-        return customerService.findById(id)
-                .orElseThrow(() -> new CustomerNotFoundException(id));
+        return customerService.findById(id);
     }
 
     @QueryMapping
     public Customer getCustomerByEmail(@Argument String email) {
-        return customerService.findByEmail(email)
-                .orElseThrow(() -> new CustomerNotFoundException(email));
+        return customerService.findByEmail(email);
     }
 }
 

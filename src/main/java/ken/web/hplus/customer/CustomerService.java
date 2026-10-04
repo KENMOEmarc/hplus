@@ -20,11 +20,13 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
-    public Optional<Customer> findById(Long id) {
-        return customerRepository.findById(id);
+    public Customer findById(Long id) {
+        return customerRepository.findById(id).orElseThrow(
+                () -> CustomerNotFoundException.byId(id));
     }
 
-    public Optional<Customer> findByEmail(String email) {
-        return Optional.ofNullable(customerRepository.findCustomerByEmail(email));
+    public Customer findByEmail(String email) {
+        return customerRepository.findByEmailIgnoreCase(email).orElseThrow(
+                () -> CustomerNotFoundException.byEmail("Customer not found with email: " + email));
     }
 }
